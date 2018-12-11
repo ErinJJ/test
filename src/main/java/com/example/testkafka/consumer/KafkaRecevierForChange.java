@@ -11,7 +11,7 @@ import java.util.Optional;
 @Component
 public class KafkaRecevierForChange {
 
-    public static final String TOPIC_NAME = "ca_change_send_to_contract";
+    public static final String TOPIC_NAME = "test_change_send";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
@@ -22,7 +22,7 @@ public class KafkaRecevierForChange {
             // 记录消息
             Optional<?> kafkaMessage = Optional.ofNullable(record);
             if (kafkaMessage.isPresent()) {
-                logger.info("ehr查询消息内容：{}", record);
+                logger.info("查询消息内容：{}", record);
 
             }
         } catch (Exception e) {

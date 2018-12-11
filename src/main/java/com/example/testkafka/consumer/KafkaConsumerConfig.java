@@ -56,7 +56,7 @@ public class KafkaConsumerConfig {
 
 
 
-    private String statusServers="kafka01-test.lianjia.com:9092,kafka02-test.lianjia.com:9092,kafka03-test.lianjia.com:9092";
+//    private String statusServers="kafka01-test.lianjia.com:9092,kafka02-test.lianjia.com:9092,kafka03-test.lianjia.com:9092";
     private String statusGroupId="status-test";
 
     public Map<String, Object> storeStandardIdInfoChangeConsumerConfig(String servers, String groupId) {
@@ -76,10 +76,10 @@ public class KafkaConsumerConfig {
     public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, String>> storeStatusChangeConsumer() {
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         ConsumerFactory<String, String> storeStandardIdInfoFactory =
-                new DefaultKafkaConsumerFactory<>(storeStandardIdInfoChangeConsumerConfig(statusServers, statusGroupId));
+                new DefaultKafkaConsumerFactory<>(storeStandardIdInfoChangeConsumerConfig(servers, statusGroupId));
         factory.setConsumerFactory(storeStandardIdInfoFactory);
         factory.getContainerProperties().setPollTimeout(3000);
-        logger.info("状态变更用 kafka 建立完毕...servers:{}, groupId:{}", statusServers, statusGroupId);
+        logger.info("变更用 kafka 建立完毕...servers:{}, groupId:{}", servers, statusGroupId);
         return factory;
     }
 }

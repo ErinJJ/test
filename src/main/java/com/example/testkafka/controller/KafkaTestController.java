@@ -16,8 +16,8 @@ public class KafkaTestController {
     @RequestMapping(value = "/test",method =RequestMethod.GET )
     @ResponseBody
     public void testKafka(){
-        Object obj="this is ca to contract";
-        kafkaProducerForChange.caMessageProducer("ca_change_send_to_contract",obj);
+        Object obj="this is kafka test";
+        kafkaProducerForChange.caMessageProducer("test_change_send",obj);
     }
 
 
