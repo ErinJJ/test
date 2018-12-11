@@ -1,0 +1,5 @@
+# test
+这是一个简单的利用kafka进行消息发送和消息消费的demo
+其中类KafkaTestController是访问接口
+KafkaConsumerConfig消费者配置类，KafkaRecevierForChange消息消费方法
+KafkaProducerConfig为生产者配置类，KafkaProducerForChange生产消息方法
